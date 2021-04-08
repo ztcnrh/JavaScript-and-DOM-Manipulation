@@ -49,7 +49,7 @@ var data = [{
     state: "or",
     country: "us",
     shape: "triangle",
-    durationMinutes: "a few mintues",
+    durationMinutes: "a few minutes",
     comments: "Triangle shaped craft with three red lights at points hovering over Grants Pass&#44 Oregon."
   },
   {
@@ -175,7 +175,7 @@ var data = [{
     state: "ca",
     country: "us",
     shape: "formation",
-    durationMinutes: "25 mintutes",
+    durationMinutes: "25 minutes",
     comments: "3 red lights over the mountains in Eastern San Diego"
   },
   {
