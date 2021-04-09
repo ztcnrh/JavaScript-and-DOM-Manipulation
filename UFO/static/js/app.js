@@ -15,6 +15,15 @@ function appendTable(arr) {
     });
 }
 
+
+// ----------------------------------------------
+// Extra: include a function to get unique string values of the UFO shapes
+// I'm only using this so I can create a list of options in a <select> tag thus users can filter
+const distinctShapes = [...new Set(ufoData.map(x => x.shape))];
+console.log(distinctShapes.sort((a, b) => a.localeCompare(b)))
+// ----------------------------------------------
+
+
 // Append all data into a table as the default view
 appendTable(ufoData);
 
@@ -32,6 +41,9 @@ buttonClean.on("click", runRefresh);
 
 // Filter function
 function runEnter() {
+
+    // Reassign the data from `data.js` everytime the filter function is ran
+    var ufoData = data;
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
@@ -94,8 +106,9 @@ function runRefresh() {
     d3.select("#datetime").property("value", "");
     d3.select("#city").property("value", "");
     d3.select("#state").property("value", "");
-    d3.select("#country").property("value", "");
-    d3.select("#shape").property("value", "");
+    document.querySelector('#country').selectedIndex = 0;
+    // d3.select("#shape").property("value", "");
+    document.querySelector('#shape').selectedIndex = 0;
 
     // Redefine ufoData to the original data
     var ufoData = data;
