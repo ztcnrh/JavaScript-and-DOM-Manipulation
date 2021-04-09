@@ -9,5 +9,7 @@ The objective of this assignment is to create an HTML page which dynamically dis
 To achieve this, codes were written to append the table to HTML based on the dataset. Multiple filter options were then built by matching user inputs (text inputs and drop down selections) with the corresponding data. In addition, a "Clean Filters" option was also added to make the user experience seamless. The HTML and CSS codes were modified as needed throughout the process.
 <br><br>
 
-<strong>Below is a highlight of the webpage:</strong>
+<strong>Below is a highlight of the webpage.</strong>
+View the fully deployed Github Pages here: https://ztcnrh.github.io/JavaScript-and-DOM-Manipulation/
+<br><br>
 ![App_Page](highlight/webpage_screenshot.png)
