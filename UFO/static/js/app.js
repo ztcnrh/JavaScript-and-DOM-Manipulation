@@ -30,7 +30,7 @@ button.on("click", runEnter);
 function runEnter() {
 
     // Prevent the page from refreshing
-    // d3.event.preventDefault();
+    d3.event.preventDefault();
   
     // Get the value property of the `datetime` input element
     var inputDate = d3.select("#datetime").property("value");
