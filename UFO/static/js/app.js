@@ -4,6 +4,7 @@ var ufoData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
+// Build a function that takes a dataset (an array) and appends the table structure into the html
 function appendTable(arr) {
     arr.forEach((sighting) => {
         var row = tbody.append("tr");
@@ -43,7 +44,7 @@ function runEnter() {
     // Get the value property of the `shape` input element
     var inputShape = d3.select("#shape").property("value");
 
-    // console.log(inputDate);
+    // Apply filters for each applicable input to get to a final filtered dataset
     if (inputDate !== "") {
         ufoData = ufoData.filter(sighting => sighting.datetime === inputDate);
     };
@@ -60,6 +61,7 @@ function runEnter() {
         ufoData = ufoData.filter(sighting => sighting.shape === inputShape);
     };
 
+    // Build condition to catch scenario when nothing is entered as filters and the user clicks on the button
     if (inputDate === "" &&
         inputCity === "" &&
         inputState === "" &&
@@ -69,10 +71,13 @@ function runEnter() {
         ufoData = data;
     };
 
+    // Check returned results (for developers)
     console.log(ufoData);
 
+    // Remove any children from the tbody
     tbody.html("");
 
+    // Append filtered data into the table (if applicable)
     appendTable(ufoData);
 };
 
