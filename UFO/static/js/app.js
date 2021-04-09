@@ -17,24 +17,19 @@ function appendTable(arr) {
 // Append all data into a table as the default view
 appendTable(ufoData);
 
-
 // ----------------------------------------------
 // Create event listeners to find rows that match user input filters.
 
 // Select the button
 var button = d3.select("#filter-btn");
 
-// Select the form
-// var form = d3.select("form");
-
 // Create event handlers 
 button.on("click", runEnter);
-// form.on("submit",runEnter);
 
 // Complete the event handler function for the form
 function runEnter() {
 
-  // Prevent the page from refreshing
+    // Prevent the page from refreshing
     // d3.event.preventDefault();
   
     // Get the value property of the `datetime` input element
@@ -48,23 +43,36 @@ function runEnter() {
     // Get the value property of the `shape` input element
     var inputShape = d3.select("#shape").property("value");
 
-    console.log(inputDate);
+    // console.log(inputDate);
+    if (inputDate !== "") {
+        ufoData = ufoData.filter(sighting => sighting.datetime === inputDate);
+    };
+    if (inputCity !== "") {
+        ufoData = ufoData.filter(sighting => sighting.city === inputCity);
+    };
+    if (inputState !== "") {
+        ufoData = ufoData.filter(sighting => sighting.state === inputState);
+    };
+    if (inputCountry !== "") {
+        ufoData = ufoData.filter(sighting => sighting.country === inputCountry);
+    };
+    if (inputShape !== "") {
+        ufoData = ufoData.filter(sighting => sighting.shape === inputShape);
+    };
 
+    if (inputDate === "" &&
+        inputCity === "" &&
+        inputState === "" &&
+        inputCountry === "" &&
+        inputShape === ""
+    ) {
+        ufoData = data;
+    };
 
-    // Create filters to filter through all eligible inputs
-    var filteredData = ufoData.filter(
-        sighting => 
-        sighting.datetime === inputDate &&
-        sighting.city === inputCity &&
-        sighting.state === inputState &&
-        sighting.country === inputCountry &&
-        sighting.shape === inputShape
-        );
-
-    console.log(filteredData);
+    console.log(ufoData);
 
     tbody.html("");
 
-    appendTable(filteredData);
+    appendTable(ufoData);
 };
 
