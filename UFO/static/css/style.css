@@ -57,6 +57,10 @@ body {
   margin-top: 50px;
 }
 
+#clean-btn {
+  margin-top: 5px;
+}
+
 .filters .panel-body {
   padding: 0;
 }

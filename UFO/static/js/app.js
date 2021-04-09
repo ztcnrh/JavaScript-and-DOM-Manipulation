@@ -22,12 +22,15 @@ appendTable(ufoData);
 // Create event listeners to find rows that match user input filters.
 
 // Select the button
-var button = d3.select("#filter-btn");
+var buttonFilter = d3.select("#filter-btn");
+var buttonClean = d3.select("#clean-btn");
 
 // Create event handlers 
-button.on("click", runEnter);
+buttonFilter.on("click", runEnter);
+buttonClean.on("click", runRefresh);
 
-// Complete the event handler function for the form
+
+// Filter function
 function runEnter() {
 
     // Prevent the page from refreshing
@@ -81,3 +84,23 @@ function runEnter() {
     appendTable(ufoData);
 };
 
+
+// Function to clean all the filters and return the original dataset
+function runRefresh() {
+    
+    d3.event.preventDefault();
+
+    // Reset the input values for the filters
+    d3.select("#datetime").property("value", "");
+    d3.select("#city").property("value", "");
+    d3.select("#state").property("value", "");
+    d3.select("#country").property("value", "");
+    d3.select("#shape").property("value", "");
+
+    // Redefine ufoData to the original data
+    var ufoData = data;
+
+    console.log(ufoData);
+    tbody.html("");
+    appendTable(ufoData);
+};
