@@ -42,7 +42,7 @@ buttonClean.on("click", runRefresh);
 // Filter function
 function runEnter() {
 
-    // Reassign the data from `data.js` everytime the filter function is ran
+    // Reassign the data from `data.js` everytime the filter function is run
     let ufoData = data;
 
     // Prevent the page from refreshing
