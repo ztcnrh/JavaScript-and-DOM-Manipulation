@@ -1,4 +1,4 @@
-# JavaScript-and-DOM-Manipulation
+# JavaScript and DOM Manipulation
 
 Penn Data Boot Camp Assignment 14 - Interactive webpage to display a dynamic table of UFO sightings data with filtering capabilities built on HTML Forms using JavaScript and D3.js
 
